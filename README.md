@@ -17,21 +17,25 @@ W aplikacji jest możliwe zarejestrowanie się, zalogowanie się, CRUD przepisó
 
 1. Otworzyć konsolę w folderze głównym projektu
 2. Uruchomić komendy:
+    ```
 	composer install
 	npm install
 	cp .env.example .env
 	php artisan key:generate
+    ```
 3. Skonfigurować plik .env:
-	DB_HOST=IP_Bazy
-	DB_PORT=Port_Bazy
-	DB_DATABASE=Nazwa_Bazy
-	DB_USERNAME=Nazwa_Uzytkownika_Bazy
-	DB_PASSWORD=Haslo
+   -DB_HOST=IP_Bazy
+   -DB_PORT=Port_Bazy
+   -DB_DATABASE=Nazwa_Bazy
+   -DB_USERNAME=Nazwa_Uzytkownika_Bazy
+   -DB_PASSWORD=Haslo
 4. Stworzyć bazę o nazwie wpisanej w .env
 5. Uruchomić komendy:
+    ```
 	php artisan migrate
 	php artisan db:seed
 	php artisan serve
+    ```
 6. Wejść pod adres 127.0.0.1:8000
 
 Przykładowe dane logowania: test test
