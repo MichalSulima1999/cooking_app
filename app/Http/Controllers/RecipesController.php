@@ -128,7 +128,7 @@ class RecipesController extends Controller
         ]);
     }
 
-    public function getRating($id)
+    public static function getRating($id)
     {
         $recipe = Recipe::find($id);
         $ratingAvg = $recipe->ratings->avg("rating");

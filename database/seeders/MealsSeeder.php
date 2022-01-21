@@ -14,8 +14,6 @@ class MealsSeeder extends Seeder
      */
     public function run()
     {
-        //DB::table('meals')->delete();
-
         DB::table('meals')->insert([
             ['name' => 'Śniadanie'],
             ['name' => 'Obiad'],

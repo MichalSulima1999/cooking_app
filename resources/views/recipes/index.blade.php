@@ -72,6 +72,6 @@
 
     </div>
     <div>
-        {{ $recipes->links() }}
+        {{ $recipes->appends(Request::all())->links() }}
     </div>
 @endsection

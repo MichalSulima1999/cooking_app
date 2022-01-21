@@ -30,8 +30,8 @@ class StoreRecipeRequest extends FormRequest
             'ingredients' => 'required',
             'hours' => 'required|numeric|min:0',
             'minutes' => 'required|numeric|min:0|max:60',
-            'image' => 'mimes:jpg,png,jpeg,webp|max:5048'
-            //'meal_id' => 'required|min:1|max:4'
+            'image' => 'mimes:jpg,png,jpeg,webp|max:5048',
+            'meal_id' => 'required|min:1|max:4|integer'
         ];
     }
 }
