@@ -63,7 +63,7 @@
 
         </div>
 
-        <input type="submit" name="submit" id="submit" class="btn btn-info" value="{{ __('Edit recipe') }}" />
+        <input type="submit" name="submit" id="submit" class="btn btn-info" value="{{ __('Add recipe') }}" />
     </form>
 
     <script type="text/javascript">

@@ -16,7 +16,7 @@ class Recipe extends Model
 
     protected $primaryKey = 'id';
 
-    protected $fillable = ['name', 'description', 'image_path', 'meal_id', 'ingredients', 'user_id', 'cooking_time'];
+    protected $fillable = ['name', 'description', 'image_path', 'meal_id', 'ingredients', 'user_id', 'cooking_time', 'created_at'];
 
     public function user()
     {

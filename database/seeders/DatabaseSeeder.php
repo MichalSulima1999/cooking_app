@@ -34,15 +34,15 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('test'),
         ]);
 
-        for($i = 1; $i <= 60; $i++){
+        for($i = 1; $i <= 600; $i+=10){
             DB::table('recipes')->insert([
                 'name' => Str::random(10),
                 'description' => file_get_contents('http://loripsum.net/api/plaintext'),
                 'cooking_time' => rand(1, 1200),
                 'image_path' => 'dummy.png',
                 'ingredients' => Str::random(10).'!!'.Str::random(10).'!!'.Str::random(10),
-                'meal_id' => rand(1, 4),
-                'user_id' => rand(1, 2),
+                'meal_id' => array(1, 11, 21, 31)[array_rand(array(1, 11, 21, 31))],
+                'user_id' => 11,
                 'created_at' => Carbon::now()
             ]);
 
@@ -54,7 +54,7 @@ class DatabaseSeeder extends Seeder
 
             DB::table('ratings')->insert([
                 'rating' => rand(1, 5),
-                'user_id' => 2,
+                'user_id' => 11,
                 'recipe_id' => $i,
             ]);
 
@@ -66,7 +66,7 @@ class DatabaseSeeder extends Seeder
 
             DB::table('comments')->insert([
                 'comment' => file_get_contents('http://loripsum.net/api/plaintext/1'),
-                'user_id' => 2,
+                'user_id' => 11,
                 'recipe_id' => $i,
             ]);
         }
