@@ -41,3 +41,38 @@ W aplikacji jest możliwe zarejestrowanie się, zalogowanie się, CRUD przepisó
 6. Wejść pod adres 127.0.0.1:8000
 
 Przykładowe dane logowania: test test
+
+## About app
+
+Final project on the subject of Web Application Programming, created in PHP using the Laravel framework.
+
+In the application it is possible to register, log in, add, edit and delete recipes. It is also possible to comment on and evaluate regulations.
+
+## Installation
+
+1. Open the console in the main project folder
+2. Run the commands:
+    ```
+	composer install
+	npm install
+	cp .env.example .env
+	php artisan key:generate
+    ```
+3. Set up the .env file:
+    ```
+    DB_HOST=IP_Bazy
+    DB_PORT=Port_Bazy
+    DB_DATABASE=Nazwa_Bazy
+    DB_USERNAME=Nazwa_Uzytkownika_Bazy
+    DB_PASSWORD=Haslo
+    ```
+4. Create a database with the name entered in .env
+5. Run the commands:
+    ```
+	php artisan migrate
+	php artisan db:seed
+	php artisan serve
+    ```
+6. Enter the address 127.0.0.1:8000
+
+Sample login credentials: test test
