@@ -14,8 +14,8 @@
                         </div>
                     @endif
 
-                    <h1>Witaj {{ Auth::user()->username }}!</h1>
-                    <h2>Ugotujmy razem coś wspaniałego!</h2>
+                    <h1>{{ __('Hello') }} {{ Auth::user()->username }}!</h1>
+                    <h2>{{ __('Let\'s cook something wonderful together!') }}</h2>
                 </div>
             </div>
         </div>

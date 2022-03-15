@@ -17,7 +17,7 @@
                     <h1>{{ $recipe->name }}</h1>
                 </li>
                 <li class="list-group-item">
-                    <h3>Czas przygotowania:
+                    <h3>{{ __('Preparation time:') }}
                         {{ $hours = floor($recipe->cooking_time / 60) }}h {{ $recipe->cooking_time - 60 * $hours }}m
                     </h3>
                 </li>
@@ -34,7 +34,7 @@
                             $ratedBool = true;
                         }
                     @endphp
-                    <h3>Oceń:</h3>
+                    <h3>{{ __('Rate:') }}</h3>
                     <form action="@if ($ratedBool) /ratings/{{ $rated->id }} @else /ratings/ @endif" method="POST" id="rateForm">
                         @csrf
                         <div>
@@ -63,7 +63,7 @@
             @endauth
 
             <div class="text-success text-center shadow-sm rounded bg-white">
-                <h3>Ocena:</h3>
+                <h3>{{ __('Rating:') }}</h3>
                 <h2 id="ratingAvg">
                     @if (App\Http\Controllers\RecipesController::getRating($recipe->id) == 0)
                         -/5
@@ -78,14 +78,14 @@
             @if (isset(Auth::user()->id) && Auth::user()->id == $recipe->user_id)
                 <div class="d-grid gap-2">
                     <a class="btn btn-secondary btn-lg mb-4" href="{{ $recipe->id }}/edit">
-                        Edytuj &rarr;
+                        {{ __('Edit') }} &rarr;
                     </a>
 
                     <form action="/recipes/{{ $recipe->id }}" method="POST" class="d-grid gap-2">
                         @csrf
                         @method('delete')
                         <button type="submit" class="btn btn-danger btn-lg mb-4">
-                            Usuń &rarr;
+                            {{ __('Delete') }} &rarr;
                         </button>
                     </form>
                 </div>
@@ -100,7 +100,7 @@
     <div class="row pb-4">
         <div class="col-md-12 col-lg-6">
             <ul class="list-group">
-                <li class="list-group-item list-group-item-primary">Składniki:</li>
+                <li class="list-group-item list-group-item-primary">{{ __('Ingredients') }}</li>
                 @foreach ($ingredients as $ingredient)
 
                     <li class="list-group-item">{{ $ingredient }}</li>
@@ -109,13 +109,13 @@
             </ul>
         </div>
         <div class="col-md-12 col-lg-6">
-            <h3>Opis przygotowania:</h3>
+            <h3>{{ __('Preparation description:') }}</h3>
             <p class="text-break" style="white-space: pre-wrap;">{{ $recipe->description }}</p>
         </div>
     </div>
 
     <div class="bg-white">
-        <h1 class="text-center">Komentarze</h1>
+        <h1 class="text-center">{{ __('Comments') }}</h1>
 
         @auth
             <form class="m-3" action="/comments/" method="POST">
@@ -139,7 +139,7 @@
                             <textarea class="ps-2 form-control mb-2" name="comment"
                                 onclick='this.style.height = "";this.style.height = this.scrollHeight + "px"; $("#editComment{{ $comment->id }}").show()'>{{ $comment->comment }}</textarea>
                             <button class="btn btn-success" type="submit" id="editComment{{ $comment->id }}"
-                                style='display:none;'>Edytuj komentarz</button>
+                                style='display:none;'>{{ __('Edit comment') }}</button>
                         </form>
 
                     @else

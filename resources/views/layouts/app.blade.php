@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Cooking with us') }}</title>
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.js" 
@@ -27,7 +27,7 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Gotujemy') }}
+                    {{ config('app.name', 'Cooking with us') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -37,16 +37,16 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link {{ (request()->is('recipes')) ? 'active' : '' }}" href="{{ route('recipes.index') }}">{{ __('Przepisy') }}</a>
+                            <a class="nav-link {{ (request()->is('recipes')) ? 'active' : '' }}" href="{{ route('recipes.index') }}">{{ __('Recipes') }}</a>
                         </li>
 
                         @auth
                         <li class="nav-item">
-                            <a class="nav-link {{ (request()->is('recipes/create')) ? 'active' : '' }}" href="{{ route('recipes.create') }}">{{ __('Dodaj przepis') }}</a>
+                            <a class="nav-link {{ (request()->is('recipes/create')) ? 'active' : '' }}" href="{{ route('recipes.create') }}">{{ __('Add recipe') }}</a>
                         </li>
-                        <!-- Moje przepisy? -->
+
                         <li class="nav-item">
-                            <a class="nav-link {{ (request()->is('recipes/myRecipes')) ? 'active' : '' }}" href="{{ route('recipes.myRecipes') }}">{{ __('Moje przepisy') }}</a>
+                            <a class="nav-link {{ (request()->is('recipes/myRecipes')) ? 'active' : '' }}" href="{{ route('recipes.myRecipes') }}">{{ __('My recipes') }}</a>
                         </li>
                         @endauth
                     </ul>
@@ -57,13 +57,13 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link {{ (request()->is('login')) ? 'active' : '' }}" href="{{ route('login') }}">{{ __('Zaloguj') }}</a>
+                                    <a class="nav-link {{ (request()->is('login')) ? 'active' : '' }}" href="{{ route('login') }}">{{ __('Log in') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link {{ (request()->is('register')) ? 'active' : '' }}" href="{{ route('register') }}">{{ __('Zarejestruj') }}</a>
+                                    <a class="nav-link {{ (request()->is('register')) ? 'active' : '' }}" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
@@ -76,7 +76,7 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Wyloguj') }}
+                                        {{ __('Log out') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -98,7 +98,13 @@
         
         <footer class="bg-dark text-center text-white mt-auto">  
             <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-                © 2022 Copyright: Michał Sulima
+                
+                <div class="d-flex justify-content-between">
+                    <div class="p-1 bd-highlight">© 2022 Copyright: Michał Sulima</div>
+                    <div class="p-1 bd-highlight text-end">
+                        <a href="/language/pl" class="link-light">PL</a> / <a href="/language/en" class="link-light">EN</a>
+                    </div>
+                  </div>
             </div>
         </footer>
     </div>

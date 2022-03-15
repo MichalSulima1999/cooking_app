@@ -15,10 +15,10 @@ class MealsSeeder extends Seeder
     public function run()
     {
         DB::table('meals')->insert([
-            ['name' => 'Śniadanie'],
-            ['name' => 'Obiad'],
-            ['name' => 'Kolacja'],
-            ['name' => 'Deser']
+            ['name' => 'Breakfast'],
+            ['name' => 'Dinner'],
+            ['name' => 'Supper'],
+            ['name' => 'Dessert']
         ]);
     }
 }
